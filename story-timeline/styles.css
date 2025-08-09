@@ -1,0 +1,204 @@
+:root {
+  --bg: #0b0d10;
+  --panel: #12161c;
+  --muted: #8c99a8;
+  --text: #e8ecf1;
+  --accent: #5ac8fa;
+  --accent-2: #a78bfa;
+  --success: #34d399;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --border: #1f2630;
+  --shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1000px 600px at 10% -10%, rgba(90, 200, 250, 0.12), transparent),
+              radial-gradient(800px 500px at 90% -20%, rgba(167, 139, 250, 0.10), transparent),
+              var(--bg);
+  color: var(--text);
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: rgba(11, 13, 16, 0.65);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand { display: flex; align-items: center; gap: 12px; }
+.logo { font-size: 28px; filter: drop-shadow(0 2px 8px rgba(90,200,250,0.55)); }
+.brand-text h1 { font-size: 18px; margin: 0; }
+.brand-text p { font-size: 12px; margin: 0; color: var(--muted); }
+
+.container {
+  max-width: 1100px;
+  margin: 18px auto 56px;
+  padding: 0 16px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px 18px;
+  background: linear-gradient(180deg, rgba(18,22,28,0.85), rgba(18,22,28,0.65));
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: var(--shadow);
+}
+
+.control-row { display: grid; gap: 8px; }
+.control-label { font-size: 12px; color: var(--muted); }
+
+.input, .select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0f1318;
+  color: var(--text);
+  outline: none;
+}
+.input:focus, .select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(90,200,250,0.15); }
+
+.btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(90,200,250,0.35);
+  background: linear-gradient(180deg, rgba(90,200,250,0.15), rgba(90,200,250,0.08));
+  color: var(--text);
+  cursor: pointer;
+}
+.btn:hover { border-color: var(--accent); }
+.btn:active { transform: translateY(1px); }
+.btn-secondary {
+  border-color: rgba(140,153,168,0.35);
+  background: linear-gradient(180deg, rgba(140,153,168,0.15), rgba(140,153,168,0.08));
+}
+
+.company-summary {
+  margin: 18px 0 8px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(18,22,28,0.75), rgba(18,22,28,0.55));
+  border-radius: 12px;
+}
+.company-summary h2 { margin: 0 0 8px; font-size: 18px; }
+.company-summary p { margin: 0; color: var(--muted); }
+
+.timeline {
+  position: relative;
+  margin-top: 12px;
+  padding-left: 22px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 12px; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(90,200,250,0.35), rgba(167,139,250,0.25));
+}
+
+.year-group {
+  margin: 16px 0 10px 0;
+}
+.year-header {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 14px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin: 8px 0 8px -6px;
+}
+.year-toggle {
+  appearance: none; border: 1px solid var(--border); background: #0f1318; color: var(--text);
+  padding: 6px 10px; border-radius: 8px; cursor: pointer; font-size: 12px;
+}
+
+.event {
+  position: relative;
+  margin: 10px 0 10px 0;
+  padding-left: 18px;
+}
+.event::before {
+  content: "";
+  position: absolute;
+  left: -2px; top: 12px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--accent), #2a3644);
+  box-shadow: 0 0 0 4px rgba(90,200,250,0.12), 0 6px 18px rgba(0,0,0,0.45);
+}
+
+.event-card {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(18,22,28,0.85), rgba(18,22,28,0.65));
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.event-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  cursor: pointer;
+}
+
+.event-date { font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; }
+.event-title { font-weight: 600; }
+
+.caret {
+  width: 24px; height: 24px;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: transform 0.15s ease;
+}
+.caret[data-expanded="true"] { transform: rotate(90deg); }
+
+.event-meta {
+  display: flex; align-items: center; gap: 10px;
+  padding: 0 14px 12px 14px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-size: 11px; padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); background: #0f1318; }
+.tag.product { border-color: rgba(90,200,250,0.35); color: var(--accent); }
+.tag.finance { border-color: rgba(167,139,250,0.35); color: var(--accent-2); }
+.tag.strategy { border-color: rgba(52,211,153,0.35); color: var(--success); }
+.tag.warning { border-color: rgba(245,158,11,0.35); color: var(--warning); }
+
+.event-details { display: none; border-top: 1px dashed var(--border); padding: 12px 14px; color: #d8dee6; }
+.event-details[open] { display: block; }
+
+.link-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.link-list a { color: var(--accent); text-decoration: none; border-bottom: 1px dashed rgba(90,200,250,0.4); }
+.link-list a:hover { color: #8bdcff; }
+
+.app-footer {
+  position: sticky; bottom: 0; margin-top: 28px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 12px 16px; color: var(--muted);
+  background: linear-gradient(180deg, rgba(11,13,16,0), rgba(11,13,16,0.75));
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 640px) {
+  .event-header { grid-template-columns: 1fr auto; }
+  .event-date { order: 2; font-size: 12px; }
+  .event-title { order: 1; }
+}

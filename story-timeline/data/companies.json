@@ -1,0 +1,101 @@
+{
+  "companies": [
+    {
+      "id": "apple",
+      "name": "Apple Inc.",
+      "summary": "Từ nhà sản xuất máy tính đến hệ sinh thái thiết bị và dịch vụ trị giá nghìn tỷ đô.",
+      "events": [
+        {
+          "date": "2001-10-23",
+          "title": "Ra mắt iPod",
+          "summary": "Thiết lập nền tảng cho hệ sinh thái phần cứng + phần mềm + nội dung.",
+          "details": "iPod giúp Apple quay lại quỹ đạo tăng trưởng, mở đường cho iTunes và sau này là App Store.",
+          "tags": ["Product", "Strategy"],
+          "metrics": {"Đơn vị bán năm đầu": "125K"},
+          "links": [{"label": "Sự kiện ra mắt", "url": "https://www.apple.com"}]
+        },
+        {
+          "date": "2007-01-09",
+          "title": "Giới thiệu iPhone",
+          "summary": "Mở ra kỷ nguyên smartphone hiện đại.",
+          "details": "iPhone đã thay đổi quỹ đạo doanh thu và định vị Apple là công ty dẫn dắt thị trường cao cấp.",
+          "tags": ["Product"],
+          "metrics": {"Doanh thu FY2007": "$24.58B"}
+        },
+        {
+          "date": "2008-07-10",
+          "title": "Ra mắt App Store",
+          "summary": "Tạo nền tảng doanh thu dịch vụ và mạng lưới nhà phát triển.",
+          "details": "App Store biến iPhone thành nền tảng, chứ không chỉ là sản phẩm đơn lẻ.",
+          "tags": ["Strategy", "Finance"],
+          "metrics": {"Ứng dụng ban đầu": "500+"}
+        },
+        {
+          "date": "2020-08-19",
+          "title": "Vốn hóa vượt 2 nghìn tỷ USD",
+          "summary": "Cột mốc lịch sử về tài chính.",
+          "details": "Phản ánh sức mạnh từ iPhone, Dịch vụ và hệ sinh thái phần cứng.",
+          "tags": ["Finance"],
+          "metrics": {"Vốn hóa": "$2T"}
+        }
+      ]
+    },
+    {
+      "id": "tesla",
+      "name": "Tesla, Inc.",
+      "summary": "Tăng tốc chuyển dịch sang năng lượng bền vững qua xe điện và pin.",
+      "events": [
+        {
+          "date": "2012-06-22",
+          "title": "Giao Model S đầu tiên",
+          "summary": "Khẳng định khả năng sản xuất xe điện cao cấp với tầm hoạt động dài.",
+          "details": "Định hình thương hiệu và tạo đà cho Model 3.",
+          "tags": ["Product"],
+          "metrics": {"Phạm vi EPA": "265 miles"}
+        },
+        {
+          "date": "2017-07-28",
+          "title": "Bàn giao Model 3",
+          "summary": "Mốc mở rộng sang phân khúc đại chúng.",
+          "details": "Thử thách ‘production hell’ nhưng mở ra quy mô mới.",
+          "tags": ["Product", "Strategy"],
+          "metrics": {"Đơn đặt hàng": ">400K"}
+        },
+        {
+          "date": "2020-12-21",
+          "title": "Gia nhập S&P 500",
+          "summary": "Thừa nhận của thị trường tài chính đối với Tesla.",
+          "tags": ["Finance"],
+          "metrics": {"Vốn hóa": "$600B+"}
+        }
+      ]
+    },
+    {
+      "id": "vn_example",
+      "name": "Công ty Ví dụ Việt Nam",
+      "summary": "Minh họa cách kể chuyện cho một công ty Việt Nam.",
+      "events": [
+        {
+          "date": "2016-03-01",
+          "title": "Thành lập công ty",
+          "summary": "Khởi đầu với sản phẩm SaaS cho SMEs.",
+          "tags": ["Strategy"]
+        },
+        {
+          "date": "2018-10-12",
+          "title": "Gọi vốn vòng A",
+          "summary": "Mở rộng đội ngũ R&D và thị trường khu vực.",
+          "tags": ["Finance"],
+          "metrics": {"Số tiền": "$5M"}
+        },
+        {
+          "date": "2021-05-20",
+          "title": "Ra mắt sản phẩm thế hệ 2",
+          "summary": "Tăng trưởng người dùng 3x trong 12 tháng.",
+          "tags": ["Product", "Strategy"],
+          "metrics": {"MAU": "250K"}
+        }
+      ]
+    }
+  ]
+}
