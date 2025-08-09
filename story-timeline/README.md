@@ -6,7 +6,7 @@ Website tĩnh để kể câu chuyện phát triển của công ty theo cấu t
 - Mở tất cả / Thu gọn tất cả
 - Tìm kiếm theo từ khóa (tiêu đề, tóm tắt, chi tiết, tag)
 - Nhóm sự kiện theo năm và có thể đóng/mở theo nhóm
-- Dữ liệu tách riêng dưới dạng JSON, dễ mở rộng
+- Dữ liệu tách riêng: mỗi công ty là một tệp JSON riêng, có `index.json` làm danh sách
 
 ## Chạy dự án
 
@@ -27,11 +27,22 @@ Lưu ý: Truy cập qua `file://` có thể chặn `fetch` JSON. Hãy dùng HTTP
 - `index.html`: Trang chính
 - `styles.css`: Giao diện
 - `app.js`: Logic render timeline, tìm kiếm, mở/thu gọn
-- `data/companies.json`: Dữ liệu ví dụ
+- `data/companies/index.json`: Danh sách công ty (id, name, summary ngắn)
+- `data/companies/<id>.json`: Chi tiết từng công ty (events...)
 
-## Mở rộng dữ liệu
+## Định dạng dữ liệu
 
-Thêm công ty hoặc sự kiện bằng cách chỉnh `data/companies.json` theo cấu trúc sau:
+- `data/companies/index.json`
+
+```json
+{
+  "companies": [
+    { "id": "apple", "name": "Apple Inc.", "summary": "Tóm tắt ngắn" }
+  ]
+}
+```
+
+- `data/companies/<id>.json`
 
 ```json
 {
@@ -51,6 +62,12 @@ Thêm công ty hoặc sự kiện bằng cách chỉnh `data/companies.json` the
   ]
 }
 ```
+
+## Cách thêm công ty mới
+
+1. Thêm một tệp mới: `data/companies/<id>.json` theo định dạng trên.
+2. Cập nhật `data/companies/index.json` để thêm `{ id, name, summary }`.
+3. Reload trang. Ứng dụng sẽ tải chi tiết khi bạn chọn công ty đó.
 
 ## Gợi ý tuỳ biến
 

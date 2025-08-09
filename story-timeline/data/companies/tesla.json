@@ -1,0 +1,30 @@
+{
+  "id": "tesla",
+  "name": "Tesla, Inc.",
+  "summary": "Tăng tốc chuyển dịch sang năng lượng bền vững qua xe điện và pin.",
+  "events": [
+    {
+      "date": "2012-06-22",
+      "title": "Giao Model S đầu tiên",
+      "summary": "Khẳng định khả năng sản xuất xe điện cao cấp với tầm hoạt động dài.",
+      "details": "Định hình thương hiệu và tạo đà cho Model 3.",
+      "tags": ["Product"],
+      "metrics": {"Phạm vi EPA": "265 miles"}
+    },
+    {
+      "date": "2017-07-28",
+      "title": "Bàn giao Model 3",
+      "summary": "Mốc mở rộng sang phân khúc đại chúng.",
+      "details": "Thử thách ‘production hell’ nhưng mở ra quy mô mới.",
+      "tags": ["Product", "Strategy"],
+      "metrics": {"Đơn đặt hàng": ">400K"}
+    },
+    {
+      "date": "2020-12-21",
+      "title": "Gia nhập S&P 500",
+      "summary": "Thừa nhận của thị trường tài chính đối với Tesla.",
+      "tags": ["Finance"],
+      "metrics": {"Vốn hóa": "$600B+"}
+    }
+  ]
+}

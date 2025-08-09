@@ -23,7 +23,8 @@ const FALLBACK_DATA = {
   ]
 };
 const state = {
-  companies: [],
+  companyIndex: [],
+  companyCache: new Map(),
   currentCompanyId: null,
   searchQuery: "",
   collapsedYears: new Set(),
@@ -39,14 +40,37 @@ const elements = {
 };
 
 async function loadData() {
+  // Load only the index of companies; details are lazy-loaded per company
   try {
-    const response = await fetch("./data/companies.json");
-    if (!response.ok) throw new Error("Không thể tải dữ liệu công ty");
+    const response = await fetch("./data/companies/index.json");
+    if (!response.ok) throw new Error("Không thể tải danh sách công ty");
     const data = await response.json();
-    state.companies = data.companies || [];
+    state.companyIndex = data?.companies || [];
   } catch (error) {
-    console.warn("Tải JSON thất bại, dùng dữ liệu dự phòng.", error);
-    state.companies = FALLBACK_DATA.companies;
+    console.warn("Tải index thất bại, dùng dữ liệu dự phòng.", error);
+    state.companyIndex = (FALLBACK_DATA.companies || []).map((c) => ({ id: c.id, name: c.name, summary: c.summary }));
+    for (const c of FALLBACK_DATA.companies || []) {
+      state.companyCache.set(c.id, c);
+    }
+  }
+}
+
+async function fetchCompanyDetails(companyId) {
+  if (state.companyCache.has(companyId)) return state.companyCache.get(companyId);
+  try {
+    const response = await fetch(`./data/companies/${companyId}.json`);
+    if (!response.ok) throw new Error("Không thể tải chi tiết công ty");
+    const data = await response.json();
+    state.companyCache.set(companyId, data);
+    return data;
+  } catch (error) {
+    console.warn(`Tải chi tiết ${companyId} thất bại, dùng dữ liệu dự phòng.`, error);
+    const fallback = (FALLBACK_DATA.companies || []).find((c) => c.id === companyId);
+    if (fallback) {
+      state.companyCache.set(companyId, fallback);
+      return fallback;
+    }
+    throw error;
   }
 }
 
@@ -67,14 +91,14 @@ function getYearFromISO(iso) {
 
 function buildCompanySelect() {
   elements.companySelect.innerHTML = "";
-  for (const company of state.companies) {
+  for (const company of state.companyIndex) {
     const option = document.createElement("option");
     option.value = company.id;
     option.textContent = company.name;
     elements.companySelect.appendChild(option);
   }
-  if (!state.currentCompanyId && state.companies.length > 0) {
-    state.currentCompanyId = state.companies[0].id;
+  if (!state.currentCompanyId && state.companyIndex.length > 0) {
+    state.currentCompanyId = state.companyIndex[0].id;
   }
   elements.companySelect.value = state.currentCompanyId || "";
 }
@@ -244,9 +268,9 @@ function renderLinks(links) {
   return `<div class="link-list">${list}</div>`;
 }
 
-function onCompanyChanged() {
+async function onCompanyChanged() {
   state.currentCompanyId = elements.companySelect.value;
-  const company = state.companies.find((c) => c.id === state.currentCompanyId);
+  const company = await fetchCompanyDetails(state.currentCompanyId);
   state.collapsedYears.clear();
   renderCompanySummary(company);
   renderTimeline(company);
@@ -254,7 +278,8 @@ function onCompanyChanged() {
 
 function onSearchChanged() {
   state.searchQuery = elements.searchInput.value.trim();
-  const company = state.companies.find((c) => c.id === state.currentCompanyId);
+  const company = state.companyCache.get(state.currentCompanyId);
+  if (!company) return;
   renderTimeline(company);
 }
 
@@ -282,7 +307,7 @@ async function init() {
   elements.expandAllBtn.addEventListener("click", () => expandOrCollapseAll(true));
   elements.collapseAllBtn.addEventListener("click", () => expandOrCollapseAll(false));
 
-  onCompanyChanged();
+  await onCompanyChanged();
 }
 
 init().catch((err) => {

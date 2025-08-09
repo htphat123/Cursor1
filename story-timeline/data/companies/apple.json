@@ -1,0 +1,40 @@
+{
+  "id": "apple",
+  "name": "Apple Inc.",
+  "summary": "Từ nhà sản xuất máy tính đến hệ sinh thái thiết bị và dịch vụ trị giá nghìn tỷ đô.",
+  "events": [
+    {
+      "date": "2001-10-23",
+      "title": "Ra mắt iPod",
+      "summary": "Thiết lập nền tảng cho hệ sinh thái phần cứng + phần mềm + nội dung.",
+      "details": "iPod giúp Apple quay lại quỹ đạo tăng trưởng, mở đường cho iTunes và sau này là App Store.",
+      "tags": ["Product", "Strategy"],
+      "metrics": {"Đơn vị bán năm đầu": "125K"},
+      "links": [{"label": "Sự kiện ra mắt", "url": "https://www.apple.com"}]
+    },
+    {
+      "date": "2007-01-09",
+      "title": "Giới thiệu iPhone",
+      "summary": "Mở ra kỷ nguyên smartphone hiện đại.",
+      "details": "iPhone đã thay đổi quỹ đạo doanh thu và định vị Apple là công ty dẫn dắt thị trường cao cấp.",
+      "tags": ["Product"],
+      "metrics": {"Doanh thu FY2007": "$24.58B"}
+    },
+    {
+      "date": "2008-07-10",
+      "title": "Ra mắt App Store",
+      "summary": "Tạo nền tảng doanh thu dịch vụ và mạng lưới nhà phát triển.",
+      "details": "App Store biến iPhone thành nền tảng, chứ không chỉ là sản phẩm đơn lẻ.",
+      "tags": ["Strategy", "Finance"],
+      "metrics": {"Ứng dụng ban đầu": "500+"}
+    },
+    {
+      "date": "2020-08-19",
+      "title": "Vốn hóa vượt 2 nghìn tỷ USD",
+      "summary": "Cột mốc lịch sử về tài chính.",
+      "details": "Phản ánh sức mạnh từ iPhone, Dịch vụ và hệ sinh thái phần cứng.",
+      "tags": ["Finance"],
+      "metrics": {"Vốn hóa": "$2T"}
+    }
+  ]
+}

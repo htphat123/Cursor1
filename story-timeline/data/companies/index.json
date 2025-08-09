@@ -1,0 +1,7 @@
+{
+  "companies": [
+    { "id": "apple", "name": "Apple Inc.", "summary": "Từ nhà sản xuất máy tính đến hệ sinh thái thiết bị và dịch vụ." },
+    { "id": "tesla", "name": "Tesla, Inc.", "summary": "Xe điện và năng lượng bền vững." },
+    { "id": "vn_example", "name": "Công ty Ví dụ Việt Nam", "summary": "Minh họa cách kể chuyện cho công ty Việt Nam." }
+  ]
+}

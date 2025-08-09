@@ -1,0 +1,27 @@
+{
+  "id": "vn_example",
+  "name": "Công ty Ví dụ Việt Nam",
+  "summary": "Minh họa cách kể chuyện cho một công ty Việt Nam.",
+  "events": [
+    {
+      "date": "2016-03-01",
+      "title": "Thành lập công ty",
+      "summary": "Khởi đầu với sản phẩm SaaS cho SMEs.",
+      "tags": ["Strategy"]
+    },
+    {
+      "date": "2018-10-12",
+      "title": "Gọi vốn vòng A",
+      "summary": "Mở rộng đội ngũ R&D và thị trường khu vực.",
+      "tags": ["Finance"],
+      "metrics": {"Số tiền": "$5M"}
+    },
+    {
+      "date": "2021-05-20",
+      "title": "Ra mắt sản phẩm thế hệ 2",
+      "summary": "Tăng trưởng người dùng 3x trong 12 tháng.",
+      "tags": ["Product", "Strategy"],
+      "metrics": {"MAU": "250K"}
+    }
+  ]
+}
