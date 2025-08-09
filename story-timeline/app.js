@@ -1,4 +1,27 @@
 /* eslint-disable no-undef */
+const FALLBACK_DATA = {
+  companies: [
+    {
+      id: "apple",
+      name: "Apple Inc.",
+      summary: "Từ nhà sản xuất máy tính đến hệ sinh thái thiết bị và dịch vụ trị giá nghìn tỷ đô.",
+      events: [
+        { date: "2001-10-23", title: "Ra mắt iPod", summary: "Thiết lập nền tảng cho hệ sinh thái.", tags: ["Product", "Strategy"], metrics: { "Đơn vị bán năm đầu": "125K" } },
+        { date: "2007-01-09", title: "Giới thiệu iPhone", summary: "Mở ra kỷ nguyên smartphone.", tags: ["Product"] },
+        { date: "2008-07-10", title: "Ra mắt App Store", summary: "Tạo nền tảng dịch vụ.", tags: ["Strategy", "Finance"] }
+      ]
+    },
+    {
+      id: "vn_example",
+      name: "Công ty Ví dụ Việt Nam",
+      summary: "Minh họa cách kể chuyện cho một công ty Việt Nam.",
+      events: [
+        { date: "2016-03-01", title: "Thành lập công ty", summary: "Khởi đầu với SaaS cho SMEs.", tags: ["Strategy"] },
+        { date: "2018-10-12", title: "Gọi vốn vòng A", summary: "Mở rộng đội ngũ và thị trường.", tags: ["Finance"], metrics: { "Số tiền": "$5M" } }
+      ]
+    }
+  ]
+};
 const state = {
   companies: [],
   currentCompanyId: null,
@@ -16,10 +39,15 @@ const elements = {
 };
 
 async function loadData() {
-  const response = await fetch("./data/companies.json");
-  if (!response.ok) throw new Error("Không thể tải dữ liệu công ty");
-  const data = await response.json();
-  state.companies = data.companies || [];
+  try {
+    const response = await fetch("./data/companies.json");
+    if (!response.ok) throw new Error("Không thể tải dữ liệu công ty");
+    const data = await response.json();
+    state.companies = data.companies || [];
+  } catch (error) {
+    console.warn("Tải JSON thất bại, dùng dữ liệu dự phòng.", error);
+    state.companies = FALLBACK_DATA.companies;
+  }
 }
 
 function formatDate(isoDateString) {
