@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Phân tích công ty - Kể chuyện theo dòng thời gian</title>
+    <meta name="description" content="Website kể câu chuyện phát triển của công ty theo cấu trúc thời gian, có thể mở/thu gọn và tìm kiếm sự kiện." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="header-left">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">📈</div>
+          <div class="brand-text">
+            <h1>Phân tích công ty</h1>
+            <p>Kể chuyện theo dòng thời gian</p>
+          </div>
+        </div>
+      </div>
+      <div class="header-right">
+        <button id="expandAllBtn" class="btn" aria-label="Mở tất cả chi tiết">Mở tất cả</button>
+        <button id="collapseAllBtn" class="btn btn-secondary" aria-label="Thu gọn tất cả chi tiết">Thu gọn tất cả</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="controls" aria-label="Bộ lọc và lựa chọn">
+        <div class="control-row">
+          <label for="companySelect" class="control-label">Chọn công ty</label>
+          <select id="companySelect" class="select"></select>
+        </div>
+        <div class="control-row">
+          <label for="searchInput" class="control-label">Tìm kiếm sự kiện</label>
+          <input id="searchInput" class="input" type="search" placeholder="Từ khóa: sản phẩm, doanh thu, M&A..." />
+        </div>
+      </section>
+
+      <section id="companySummary" class="company-summary" aria-live="polite"></section>
+
+      <section id="timeline" class="timeline" aria-label="Dòng thời gian"></section>
+    </main>
+
+    <footer class="app-footer">
+      <div>
+        <span>Made with ♥ for storytelling analysis</span>
+      </div>
+    </footer>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
